@@ -1,0 +1,188 @@
+      name: Demo Floorplan
+      image: /local/custom_ui/floorplan/floorplan.svg
+      stylesheet: /local/custom_ui/floorplan/floorplan.css
+      
+      # These options are optional
+      # warnings:                  # enable warnings (to find out why things might ot be working correctly)
+      # pan_zoom:                  # enable experimental panning / zooming
+      # hide_app_toolbar:          # hide the application toolbar (when used as a custom panel)
+      # date_format: DD-MMM-YYYY   # Date format to use in hover-over text
+      
+      #last_motion_entity: sensor.template_last_motion
+      #last_motion_class: last-motion
+
+      groups:
+
+        # - name: Switches
+          # entities:
+             # - switch.luz_ofi
+             # - switch.shelly2
+             # - switch.luz_bano
+             # - switch.calefaccion
+             # - switch.recibidor
+             # - switch.luz_cocina               
+          # states:
+            # - state: 'on'
+              # class: 'light-on'
+            # - state: 'off'
+              # class: 'light-off'
+            # action:
+           # domain: homeassistant   # This optional parameter allows you to use other services such as homeassistant.toggle like here.
+             # service: toggle
+
+        - name: Switches
+          entities:
+            - switch.luz_ofi
+            - switch.shelly2
+          states:
+            - state: 'on'
+              class: 'switch-on'
+            - state: 'off'
+              class: 'switch-off'
+          action:
+            domain: homeassistant   # This optional parameter allows you to use other services such as homeassistant.toggle like here.
+            service: toggle
+
+        # - name: Switches_custom
+          # entities:
+             # - switch.calefaccion
+          # states:
+            # - state: 'on'
+              # class: 'switch-on-red'
+            # - state: 'off'
+              # class: 'switch-off'
+          # action:
+            # domain: homeassistant   # This optional parameter allows you to use other services such as homeassistant.toggle like here.
+            # service: toggle
+                                           
+        # - name: text_font_date
+          # entities:
+             # - sensor.date
+          # text_template: '${entity.state ? entity.state : "undefined"}'
+          # class_template: 'return "static-text-date";'
+
+        # - name: text_font_time
+          # entities:
+             # - sensor.time
+          # text_template: '${entity.state ? entity.state : "undefined"}'
+          # class_template: 'return "static-text-time";'
+
+        # - name: Family
+          # entities:
+            # - device_tracker.nombre1
+            # - device_tracker.nombre2
+          # text_template: '${entity.state ? entity.state.replace("not_home", "away") : "undefined"}'
+          # states:
+            # - state: 'home'
+              # class: 'text-home'
+            # - state: 'not_home'
+              # class: 'text-away'
+
+        # - name: temperaturas
+          # entities:
+            # - sensor.pws_temp_c
+            # - sensor.temperature_158d0001ab2c73
+          # text_template: '${entity.state ? Math.ceil(entity.state) + "°": "undefined"}'
+          # class_template: 'return "static-temp";'
+
+        # - name: humedad
+          # entities:
+            # - sensor.humidity_158d0001ab2c73
+            # - sensor.pws_relative_humidity
+          # text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
+          # class_template: 'return "static-temp";'
+
+        # - name: prob_lluvia
+          # entities:
+            # - sensor.pws_precip_1d
+          # text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
+          # class_template: 'return "static-temp";'
+
+        # - name: lluvia
+          # entities:
+            # - sensor.pws_precip_1d_mm
+          # text_template: '${entity.state ? Math.ceil(entity.state) + "mm": "undefined"}'
+          # class_template: 'return "static-temp";'
+
+        # - name: Alarm Panel
+          # entities:
+             # - alarm_control_panel.house
+          # states:
+            # - state: 'armed_away'
+              # class: 'alarm-armed'
+            # - state: 'armed_home'
+              # class: 'alarm-armed_home'
+            # - state: 'disarmed'
+              # class: 'alarm-disarmed'
+
+        # - name: baterias
+          # entities:
+            # - sensor.battery_nombre1
+            # - sensor.battery_nombre2
+            # - sensor.battery_sensor_temperatura_salon
+          # text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
+          # class_template: 'return "static-temp";'
+
+
+        # - name: Weather Icon
+          # entities:
+            # - sensor.pws_weather
+          # image_template: '
+            # var imageName = "";
+            # switch (entity.state) {
+              # case "Despejado":
+                # imageName = "sol";
+                # break;
+              # case "Cielo mayormente despejado":
+                # imageName = "sol";
+                # break;
+              # case "Parcialmente nublado":
+                # imageName = "solnubes";
+                # break;
+              # case "Cielo parcialmente cubierto":
+                # imageName = "solnubes";
+                # break;
+              # case "Nublado":
+                # imageName = "nublado";
+                # break;
+              # case "Muy nublado":
+                # imageName = "nublado";
+                # break;
+              # case "Lluvia":
+                # imageName = "lluvia";
+                # break;
+              # case "Nieve":
+                # imageName = "nieve";
+                # break;
+            # }
+            # return "/local/custom_ui/floorplan/images/weather/" + imageName + ".svg";
+            # '
+        # - name: Media Players
+          # entities:
+            # - media_player.tv_salon
+          # states:
+            # - state: 'off'
+              # class: 'mediaplayer-off'
+            # - state: 'idle'
+              # class: 'mediaplayer-off'
+            # - state: 'paused'
+              # class: 'mediaplayer-off'
+            # - state: 'playing'
+              # class: 'mediaplayer-on'
+            # - state: 'on'
+              # class: 'mediaplayer-on'
+        
+        
+        # - name: Device_tracker
+          # entities:
+            # - sensor.vehiculo_state
+            # - sensor.vehiculo_status
+          # text_template: '${entity.state ? entity.state : "undefined"}'  
+          # class_template: 'return "static-device";'
+          
+        # - name: Velocidad
+          # entities:
+            # - sensor.vehiculo_speed
+          # text_template: '${entity.state ? entity.state + "KM/H": "undefined"}'  
+          # class_template: 'return "static-device";'
+
