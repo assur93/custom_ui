@@ -34,7 +34,6 @@
           entities:
             - switch.luz_ofi
             - switch.shelly2
-            - switch.door_lock
             - switch.shelly21
           states:
             - state: 'on'
@@ -45,17 +44,17 @@
             domain: homeassistant   # This optional parameter allows you to use other services such as homeassistant.toggle like here.
             service: toggle
 
-         #- name: Puertas
-           #entities:
-            #  - lock.doorlock
-          # states:
-            # - state: 'on'
-              # class: 'switch-on-red'
-            # - state: 'off'
-              # class: 'switch-off'
-           #action:
-             #domain: lock   # This optional parameter allows you to use other services such as homeassistant.toggle like here.
-             #service: lock
+         - name: Puertas
+           entities:
+              - switch.door_lock
+           states:
+             - state: 'on'
+               class: 'abierto'
+             - state: 'off'
+               class: 'cerrado'
+           action:
+             domain: homeassistant   # This optional parameter allows you to use other services such as homeassistant.toggle like here.
+             service: toggle
                                            
         # - name: text_font_date
           # entities:
